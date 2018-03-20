@@ -13,7 +13,6 @@ namespace github_api_demo.Controllers
 
     public class GithubController : ApiController
     {
-    
 
         [Route("github/search")]
         [HttpGet]

@@ -3,6 +3,11 @@
 <input id="searchInput" placeholder="Repo name" />
 <button id="search">Search</button>
 
+<br />
+<div id="result">
+
+</div>
+
 @section scripts{
     <script>
     $("#search").click(function () {
@@ -12,7 +17,11 @@
         var req = $.get("/github/search", { term: term });
 
         req.done(function (data) {
-            debugger;
+            var $container = $("#result")
+            $.each(data.Items, function (index, item) {
+                var line = "<p>" + item.FullName + "</p>";
+                $container.append(line);
+            });
         })
 
     });
