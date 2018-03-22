@@ -11,7 +11,11 @@ namespace github_api_demo.Controllers
     {
         public ActionResult Index()
         {
+            return View();
+        }
 
+        public ActionResult WithFilter()
+        {
             return View();
         }
     }

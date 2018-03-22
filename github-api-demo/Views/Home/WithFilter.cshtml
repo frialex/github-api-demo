@@ -1,0 +1,40 @@
+﻿
+@{
+    ViewBag.Title = "WithFilter";
+}
+
+<h2>With Filter</h2>
+
+<form id="searchWithFilter">
+    <input name="term" placeholder="Search Term" />
+    <br />
+
+    <label>Repo Created Date:</label>
+    <input name="repoCreatedFilterDate" type="date" placeholder="Repo Created Date" />
+
+    <button type="submit">Search</button>
+</form>
+
+<div id="result">
+
+</div>
+
+
+@section scripts {
+    <script>
+        $("#searchWithFilter").submit(function (e) {
+            e.preventDefault();
+
+            var formData = $(this).serialize();
+
+            var req = $.post("/github/filterByRepoCreationDate", formData)
+
+            req.done(function (data) {
+                $("#result").text(JSON.stringify(data));
+            });
+
+
+        })
+
+    </script>
+}
