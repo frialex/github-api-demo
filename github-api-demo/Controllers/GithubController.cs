@@ -7,6 +7,7 @@ using System.Net.Http;
 using System.Web.Http;
 using Octokit;
 using System.Web.Http.Results;
+using github_api_demo.Models;
 
 namespace github_api_demo.Controllers
 {
@@ -54,16 +55,6 @@ namespace github_api_demo.Controllers
 
     }
 
-    public class SimpleResult
-    {
-        public string RepoName { get; set; }
-        public DateTime CreatedAt { get; set; }
-    }
 
-    public class RepoCreatedDateFilterRequest
-    {
-        public DateTime repoCreatedFilterDate { get; set; }
 
-        public string term { get; set; }
-    }
 }
